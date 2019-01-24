@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>repositories</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>Image_uploading_message_queue</artifactId>
 
     <dependencies>
         <dependency>
@@ -18,4 +17,5 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
+
 </project>
