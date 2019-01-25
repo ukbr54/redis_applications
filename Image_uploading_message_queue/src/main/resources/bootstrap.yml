@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: image-uploading-message-queue
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: image-uploading-message-queue
+        enabled: true
+      config:
+        enabled: true
+        format: files
+        fail-fast: true
+        prefix: config
