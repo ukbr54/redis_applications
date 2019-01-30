@@ -1,6 +1,7 @@
 package com.fancyfrog.example2.resource;
 
 import com.fancyfrog.example2.model.CityDetails;
+import com.fancyfrog.example2.model.CountryDetails;
 import com.fancyfrog.example2.service.TravelTicketService;
 import com.fancyfrog.example2.ws.WSTravelTickets;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,13 @@ public class TicketController {
     public ResponseEntity<?> getCityTickets(@RequestParam("city") String city){
         CityDetails cityTickets = travelTicketService.getCityTickets(city);
         WSTravelTickets travelTickets = new WSTravelTickets(cityTickets);
+        return new ResponseEntity<>(travelTickets,HttpStatus.OK);
+    }
+
+    @GetMapping("/countries")
+    public ResponseEntity<?> getCountryTickets(@RequestParam("country") String country){
+        CountryDetails countryTickets = travelTicketService.getCountryTickets(country);
+        WSTravelTickets travelTickets = new WSTravelTickets(countryTickets);
         return new ResponseEntity<>(travelTickets,HttpStatus.OK);
     }
 }

@@ -69,4 +69,15 @@ public class TravelTicketService {
            throw new RuntimeException("City is not present");
        }
    }
+
+   public CountryDetails getCountryTickets(String country){
+       long start = System.currentTimeMillis();
+       Optional<CountryDetails> countryDetails = countryDetailsRepository.findById(country);
+       log.info("Retrieving the country data from redis server: "+(System.currentTimeMillis() - start)+" ms");
+       if(countryDetails.isPresent()){
+           return countryDetails.get();
+       }else{
+           throw new RuntimeException("Country is not present");
+       }
+   }
 }
