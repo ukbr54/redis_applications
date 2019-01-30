@@ -1,4 +1,4 @@
-package com.fancyfrog.model;
+package com.fancyfrog.example1.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

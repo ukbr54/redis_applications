@@ -1,6 +1,6 @@
-package com.fancyfrog.repositories;
+package com.fancyfrog.example1.repositories;
 
-import com.fancyfrog.model.Person;
+import com.fancyfrog.example1.model.Person;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.geo.Circle;

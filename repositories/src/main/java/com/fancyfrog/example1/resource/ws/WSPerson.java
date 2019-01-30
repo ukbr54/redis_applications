@@ -1,4 +1,4 @@
-package com.fancyfrog.resource.ws;
+package com.fancyfrog.example1.resource.ws;
 
 import lombok.Getter;
 import lombok.Setter;

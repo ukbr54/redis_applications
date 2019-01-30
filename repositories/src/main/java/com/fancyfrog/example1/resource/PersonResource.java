@@ -1,6 +1,5 @@
-package com.fancyfrog.resource;
+package com.fancyfrog.example1.resource;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
