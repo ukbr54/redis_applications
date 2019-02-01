@@ -26,4 +26,11 @@ public class URLConverterService {
         String shortenedUrl = baseUrl + uniqueID;
         return  shortenedUrl;
     }
+
+    public String getLongURLFromID(String uniqueID) throws Exception {
+        Long dictionaryKey = IDConverter.INSTANCE.getDictionaryKeyFromUniqueID(uniqueID);
+        String longURL = urlRepository.getUrl(dictionaryKey);
+        log.info("Converting shortened URL back to {}", longURL);
+        return longURL;
+    }
 }

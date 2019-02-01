@@ -20,7 +20,8 @@ public class IDConverter {
       LinkedList<Integer> base62ID = convertBase10ToBase62ID(id);
       StringBuilder uniqueURLID = new StringBuilder();
       for(int digit : base62ID){
-          uniqueURLID.append(indexToCharTable.get(digit));
+          Character c = indexToCharTable.get(digit);
+          uniqueURLID.append(c);
       }
       return uniqueURLID.toString();
     }
