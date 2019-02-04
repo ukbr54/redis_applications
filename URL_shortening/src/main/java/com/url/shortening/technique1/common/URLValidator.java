@@ -1,4 +1,4 @@
-package com.url.shortening.common;
+package com.url.shortening.technique1.common;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

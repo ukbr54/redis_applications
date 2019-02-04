@@ -1,4 +1,4 @@
-package com.url.shortening.repository;
+package com.url.shortening.technique1.repository;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +9,13 @@ import java.util.Optional;
 
 @Slf4j
 @Repository
-public class URLRepository {
+public class URLShortenerRepository {
 
     private @Autowired RedisTemplate redisTemplate;
     private final String idKey;
     private final String urlKey;
 
-    public URLRepository(){
+    public URLShortenerRepository(){
         this.idKey = "id";
         this.urlKey = "URL";
     }

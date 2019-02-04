@@ -1,4 +1,4 @@
-package com.url.shortening.dto;
+package com.url.shortening.technique1.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

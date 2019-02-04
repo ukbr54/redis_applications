@@ -1,8 +1,8 @@
-package com.url.shortening.controller;
+package com.url.shortening.technique1.controller;
 
-import com.url.shortening.common.URLValidator;
-import com.url.shortening.dto.ShortenRequest;
-import com.url.shortening.service.URLConverterService;
+import com.url.shortening.technique1.common.URLValidator;
+import com.url.shortening.technique1.dto.ShortenRequest;
+import com.url.shortening.technique1.service.URLShortenerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +14,13 @@ import javax.validation.Valid;
 
 @Slf4j
 @RestController
-public class URLController {
+public class URLShortenerController {
 
-    private final URLConverterService urlConverterService;
+    private final URLShortenerService urlShortenerService;
 
     @Autowired
-    public URLController(URLConverterService urlConverterService) {
-        this.urlConverterService = urlConverterService;
+    public URLShortenerController(URLShortenerService urlShortenerService) {
+        this.urlShortenerService = urlShortenerService;
     }
 
     @PostMapping(value = "/shortener",consumes = { "application/json" })
@@ -28,7 +28,7 @@ public class URLController {
         log.info("Received URL to shorten: "+shortenRequest.getUrl());
         String longUrl = shortenRequest.getUrl();
         if(URLValidator.INSTANCE.validateURL(longUrl)){
-            String shortenedUrl = urlConverterService.shortenURL(null,longUrl);
+            String shortenedUrl = urlShortenerService.shortenURL(longUrl,1);
             log.info("Shortened url to: " + shortenedUrl);
             return shortenedUrl;
         }
@@ -38,7 +38,7 @@ public class URLController {
     @GetMapping(value = "/{id}")
     public RedirectView redirectUrl(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.info("Received shorten url to redirect: "+id);
-        String redirectUrlString  = urlConverterService.getLongURLFromID(id);
+        String redirectUrlString  = urlShortenerService.getLongURLFromID(id);
         log.info("Original URL: "+redirectUrlString);
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl(redirectUrlString);
