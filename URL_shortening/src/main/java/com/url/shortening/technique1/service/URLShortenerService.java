@@ -35,7 +35,7 @@ public class URLShortenerService {
         String baseUrl = "http://localhost:8080/";
         StringBuilder shortenedUrl = new StringBuilder(baseUrl);
         String shortUrl = getUrlHashedValue(url, repeat);
-        Optional<String> longUrl = Optional.ofNullable(getLongURLFromID(shortUrl));
+        Optional<String> longUrl = Optional.ofNullable(urlShortenerRepository.getUrl(shortUrl));
         if(!(longUrl.isPresent())){
             urlShortenerRepository.saveUrl("url:"+shortUrl,url);
         }else if(longUrl.isPresent() && url.equals(longUrl.get())){
