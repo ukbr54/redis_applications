@@ -31,14 +31,14 @@ public class URLShortenerRepository {
         redisTemplate.opsForHash().put(urlKey,key,longUrl);
     }
 
-    public String getUrl(Long id) throws Exception{
+    public String getUrl(String id){
         log.info("Retrieving  at {}", id);
-        Optional<Object> url = Optional.of(redisTemplate.opsForHash().get(urlKey, "url:" + id));
+        Optional<Object> url = Optional.ofNullable(redisTemplate.opsForHash().get(urlKey, "url:" + id));
         if(url.isPresent()){
             log.info("Retrieved {} at {}",url.get(),id);
             return (String)url.get();
         }else{
-            throw new Exception("URL at key" + id + " does not exist");
+            return  null;
         }
     }
 }
